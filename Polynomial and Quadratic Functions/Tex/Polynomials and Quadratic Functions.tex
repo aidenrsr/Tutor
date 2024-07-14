@@ -1,0 +1,387 @@
+\documentclass[12pt]{article}
+ 
+\usepackage[margin=0.8in]{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+\title{Chapter 2: Polynomial and Rational Functions}
+\author{Ryan Lee}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{2.1 Quadratic Functions}
+
+Quadratic functions are polynomial functions of degree 2, with the general form:
+
+\[f(x) = ax^2 + bx + c\]
+
+where $a$, $b$, and $c$ are real numbers and $a \neq 0$.
+
+\subsection{Analyzing Graphs of Quadratic Functions}
+
+The graph of a quadratic function is called a parabola. It has several key features:
+
+\begin{itemize}
+    \item Vertex: The highest or lowest point of the parabola
+    \item Axis of symmetry: A vertical line that passes through the vertex
+    \item y-intercept: The point where the parabola crosses the y-axis
+    \item x-intercepts (or roots): The points where the parabola crosses the x-axis
+\end{itemize}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+    \draw[->] (-4,0) -- (4,0) node[right] {$x$};
+    \draw[->] (0,-1) -- (0,5) node[above] {$y$};
+    \draw[scale=0.5,domain=-3.5:3.5,smooth,variable=\x,blue, thick] plot ({\x},{(\x)^2-2*\x+1});
+    \draw[dashed] (-1,0) -- (-1,4);
+    \node at (-1,-0.3) {Vertex};
+    \node at (0,1) {y-intercept};
+    \node at (2,0.3) {x-intercept};
+    \node at (-3,4) {$f(x) = x^2 - 2x + 1$};
+\end{tikzpicture}
+\end{center}
+
+\subsection{Standard Form and Sketching}
+
+To sketch a quadratic function:
+
+1. Find the vertex using the formula: $x = -\frac{b}{2a}$
+2. Calculate the y-coordinate of the vertex: $y = f(-\frac{b}{2a})$
+3. Find the y-intercept by setting $x = 0$
+4. Find x-intercepts using the quadratic formula: $x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$
+5. Plot these points and sketch the parabola
+
+\subsection{Minimum and Maximum Values}
+
+The vertex represents the minimum value of the function if $a > 0$ (parabola opens upward) or the maximum value if $a < 0$ (parabola opens downward).
+
+\textbf{Example:} A ball is thrown upward with an initial velocity of 40 ft/s from a height of 5 ft. Its height $h$ (in feet) after $t$ seconds is given by:
+
+\[h(t) = -16t^2 + 40t + 5\]
+
+Find the maximum height of the ball and when it occurs.
+
+\textbf{Solution:}
+1. Find the vertex: $t = -\frac{b}{2a} = -\frac{40}{2(-16)} = \frac{5}{4} = 1.25$ seconds
+2. Calculate the maximum height: $h(1.25) = -16(1.25)^2 + 40(1.25) + 5 = 30$ feet
+
+The ball reaches a maximum height of 30 feet after 1.25 seconds.
+
+\section{2.2 Polynomial Functions}
+
+A polynomial function of degree $n$ has the general form:
+
+\[f(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots + a_1x + a_0\]
+
+where $a_n \neq 0$ and $n$ is a non-negative integer.
+
+\subsection{Transformations of Polynomial Functions}
+
+Transformations can be applied to polynomial functions:
+
+\begin{itemize}
+    \item Vertical shift: $f(x) + k$
+    \item Horizontal shift: $f(x - h)$
+    \item Vertical stretch/compression: $af(x)$
+    \item Horizontal stretch/compression: $f(bx)$
+    \item Reflection over x-axis: $-f(x)$
+    \item Reflection over y-axis: $f(-x)$
+\end{itemize}
+
+\subsection{Leading Coefficient Test}
+
+The leading coefficient test helps determine the end behavior of polynomial functions:
+
+\begin{itemize}
+    \item If $n$ is even and $a_n > 0$, both ends point upward
+    \item If $n$ is even and $a_n < 0$, both ends point downward
+    \item If $n$ is odd and $a_n > 0$, left end points downward, right end points upward
+    \item If $n$ is odd and $a_n < 0$, left end points upward, right end points downward
+\end{itemize}
+
+\subsection{Zeros of Polynomial Functions}
+
+Zeros (or roots) of a polynomial function are the x-values where $f(x) = 0$. They can be used as sketching aids:
+
+\begin{itemize}
+    \item If the zero has odd multiplicity, the graph crosses the x-axis
+    \item If the zero has even multiplicity, the graph touches the x-axis but doesn't cross it
+\end{itemize}
+
+\subsection{Intermediate Value Theorem}
+
+If $f(x)$ is continuous on a closed interval $[a,b]$ and $N$ is any number between $f(a)$ and $f(b)$, then there exists at least one number $c$ in $[a,b]$ such that $f(c) = N$.
+
+This theorem helps locate zeros of polynomial functions.
+
+\textbf{Example:} Use the Intermediate Value Theorem to show that $f(x) = x^3 - x - 2$ has a zero between 1 and 2.
+
+\textbf{Solution:}
+$f(1) = 1^3 - 1 - 2 = -2$
+$f(2) = 2^3 - 2 - 2 = 4$
+
+Since $f(1) < 0$ and $f(2) > 0$, and $f(x)$ is continuous, there must be a value $c$ between 1 and 2 where $f(c) = 0$.
+
+\section{2.3 Polynomial Division and Theorems}
+
+\subsection{Long Division of Polynomials}
+
+Long division of polynomials is similar to long division of numbers. Divide the terms of the dividend by the leading term of the divisor, multiply the result by the divisor, subtract, and repeat until the degree of the remainder is less than the degree of the divisor.
+
+\subsection{Synthetic Division}
+
+Synthetic division is a shortcut method for dividing a polynomial by a linear factor of the form $(x - k)$.
+
+\textbf{Example:} Divide $f(x) = x^3 - 2x^2 - 4x + 8$ by $(x - 2)$ using synthetic division.
+
+\textbf{Solution:}
+\begin{center}
+\begin{tabular}{r|rrrr}
+2 & 1 & -2 & -4 & 8 \\
+  & 2 & 0 & -8 & \\
+\hline
+  & 1 & 0 & -4 & 0
+\end{tabular}
+\end{center}
+
+The quotient is $x^2 + 0x - 4 = x^2 - 4$, and the remainder is 0.
+
+\subsection{Remainder and Factor Theorems}
+
+\textbf{Remainder Theorem:} The remainder of a polynomial $f(x)$ divided by $(x - k)$ is equal to $f(k)$.
+
+\textbf{Factor Theorem:} $(x - k)$ is a factor of $f(x)$ if and only if $f(k) = 0$.
+
+\subsection{Rational Zero Test}
+
+If a polynomial equation $a_nx^n + a_{n-1}x^{n-1} + \cdots + a_1x + a_0 = 0$ with integer coefficients has a rational solution, it will be of the form $\pm \frac{p}{q}$, where $p$ is a factor of $a_0$ and $q$ is a factor of $a_n$.
+
+\subsection{Descartes's Rule of Signs}
+
+For a polynomial function $f(x)$ with real coefficients:
+
+\begin{itemize}
+    \item The number of positive real zeros is either equal to the number of sign changes between consecutive nonzero coefficients, or is less than it by an even number.
+    \item The number of negative real zeros is the number of sign changes after multiplying the coefficients of odd-power terms by -1, or fewer than it by an even number.
+\end{itemize}
+
+\section{2.4 Complex Numbers}
+
+\subsection{The Imaginary Unit}
+
+The imaginary unit $i$ is defined as $i^2 = -1$.
+
+A complex number has the form $a + bi$, where $a$ and $b$ are real numbers.
+
+\subsection{Operations with Complex Numbers}
+
+\begin{itemize}
+    \item Addition/Subtraction: $(a + bi) \pm (c + di) = (a \pm c) + (b \pm d)i$
+    \item Multiplication: $(a + bi)(c + di) = (ac - bd) + (ad + bc)i$
+    \item Division: $\frac{a + bi}{c + di} = \frac{(a + bi)(c - di)}{(c + di)(c - di)} = \frac{ac + bd}{c^2 + d^2} + \frac{bc - ad}{c^2 + d^2}i$
+\end{itemize}
+
+\subsection{Complex Conjugates}
+
+The complex conjugate of $a + bi$ is $a - bi$. Multiplying a complex number by its conjugate results in a real number.
+
+\subsection{The Complex Plane}
+
+Complex numbers can be plotted on a complex plane, with the real part on the horizontal axis and the imaginary part on the vertical axis.
+
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+    \draw[->] (-3,0) -- (3,0) node[right] {Re};
+    \draw[->] (0,-3) -- (0,3) node[above] {Im};
+    \draw[fill=red] (2,1) circle (0.05);
+    \node at (2.3,1.3) {$2+i$};
+    \draw[fill=blue] (-1,-2) circle (0.05);
+    \node at (-1.3,-2.3) {$-1-2i$};
+\end{tikzpicture}
+\end{center}
+
+\section{2.5 Fundamental Theorem of Algebra}
+
+\textbf{Fundamental Theorem of Algebra:} A polynomial function of degree $n$ has exactly $n$ complex zeros (counting multiplicity).
+
+\subsection{Finding All Zeros}
+
+To find all zeros of a polynomial function:
+
+1. Find rational zeros using the Rational Zero Test
+2. Use synthetic division to factor out $(x - r)$ for each rational zero $r$
+3. Solve any remaining quadratic factors
+4. If there are still unfactored parts, use numerical methods to approximate irrational zeros
+
+\subsection{Conjugate Pairs of Complex Zeros}
+
+If $a + bi$ is a zero of a polynomial with real coefficients, then its conjugate $a - bi$ is also a zero.
+
+\textbf{Example:} Find all zeros of $f(x) = x^4 + 2x^3 - 7x^2 - 8x + 12$.
+
+\textbf{Solution:}
+1. Possible rational zeros: $\pm 1, \pm 2, \pm 3, \pm 4, \pm 6, \pm 12$
+2. Testing these values, we find that 1 and -2 are zeros
+3. Factoring out $(x - 1)$ and $(x + 2)$, we get:
+   $f(x) = (x - 1)(x + 2)(x^2 + x - 6)$
+4. Solving $x^2 + x - 6 = 0$, we get $x = 2$ or $x = -3$
+
+Therefore, the zeros are 1, -2, 2, and -3.
+
+\section{2.6 Rational Functions}
+
+A rational function is a ratio of two polynomial functions:
+
+\[f(x) = \frac{P(x)}{Q(x)}\]
+
+where $P(x)$ and $Q(x)$ are polynomials and $Q(x) \neq 0$.
+
+\subsection{Domain of Rational Functions}
+
+The domain of a rational function includes all real numbers except those that make the denominator zero.
+
+\subsection{Asymptotes}
+
+\textbf{Vertical asymptotes:} occur at x-values where the denominator is zero and the numerator is nonzero.
+
+\textbf{Horizontal asymptotes:} found by comparing the degrees of $P(x)$ and $Q(x)$:
+\begin{itemize}
+    \item If degree of $P < $ degree of $Q$, horizontal asymptote is $y = 0$
+    \item If degree of $P = $ degree of $Q$, horizontal asymptote is $y = \frac{a_n}{b_n}$, where $a_n$ and $b_n$ are leading coefficients of $P$ and $Q$
+    \item If degree of $P > $ degree of $Q$, there is no horizontal asymptote (function has infinite end behavior)
+\end{itemize}
+
+\textbf{Example:} Find the domain and asymptotes of $f(x) = \frac{x^2 - 4}{x^2 - x - 6}$.
+
+\textbf{Solution:}
+Domain: All real numbers except where $x^2 - x - 6 = 0$
+$(x - 3)(x + 2) = 0$, so $x \neq 3$ and $x \neq -2$
+
+Vertical asymptotes: $x = 3$ and $x = -2$
+
+Horizontal asymptote: Degree of numerator = degree of denominator, so $y = 1$
+
+\section{2.7 Graphs of Rational Functions}
+
+To sketch graphs of rational functions:
+
+1. Find the domain
+2. Find x- and y-intercepts
+3. Find vertical and horizontal asymptotes
+4. Find any holes in the graph (where both numerator and denominator are zero)
+5. Determine the end behavior
+6. Plot key points and sketch the graph
+
+\subsection{Slant Asymptotes}
+
+When the degree of the numerator is exactly one more than the degree of the denominator, the graph has a slant asymptote. To find it, perform long division and keep only the linear term.
+
+\textbf{Example:} Sketch the graph of $f(x) = \frac{x^2 - 1}{x - 1}$.
+
+\textbf{Solution:}
+1. Domain: All real numbers except 1
+2. y-intercept: $f(0) = -1$
+3. Vertical asymptote: $x = 1$
+4. No horizontal asymptote (degree of numerator > degree of denominator)
+5. Hole at $x = 1$ (factor out $(x-1)$ from numerator and denominator)
+6. Slant asymptote: Divide $x^2 - 1$ by $x - 1$
+   $f(x) = x + 1 + \frac{2}{x-1}$, so the slant asymptote is $y = x + 1$
+
+   \begin{center}
+\begin{tikzpicture}[scale=0.8]
+    \draw[->] (-3,0) -- (3,0) node[right] {$x$};
+    \draw[->] (0,-3) -- (0,3) node[above] {$y$};
+    \draw[scale=0.5,domain=-2.8:0.8,smooth,variable=\x,blue, thick] plot ({\x},{(\x*\x-1)/(\x-1)});
+    \draw[scale=0.5,domain=1.2:2.8,smooth,variable=\x,blue, thick] plot ({\x},{(\x*\x-1)/(\x-1)});
+    \draw[dashed] (1,-3) -- (1,3);
+    \draw[red, dashed] plot ({\x}, {\x+1});
+    \node at (0,-1) {y-intercept};
+    \node at (1,-2.5) {x = 1};
+    \node at (2.5,2.5) {y = x + 1};
+\end{tikzpicture}
+\end{center}
+
+\section{2.8 Modeling with Polynomial and Rational Functions}
+
+Polynomial and rational functions can be used to model various real-world phenomena.
+
+\subsection{Scatter Plots and Data Analysis}
+
+A scatter plot is a graph of ordered pairs $(x, y)$ that shows the relationship between two variables.
+
+Scatter plots can be classified as:
+\begin{itemize}
+    \item Linear
+    \item Quadratic
+    \item Cubic
+    \item Exponential
+    \item Logarithmic
+\end{itemize}
+
+\subsection{Finding Quadratic Models}
+
+To find a quadratic model for a set of data:
+
+1. Plot the data points
+2. Use a graphing utility to find the quadratic regression equation
+3. Analyze the correlation coefficient ($r^2$) to determine the goodness of fit
+
+\subsection{Choosing the Best Model}
+
+To choose the best model for a set of data:
+
+1. Plot the data points
+2. Try different types of regression (linear, quadratic, cubic, etc.)
+3. Compare the correlation coefficients
+4. Consider the context of the problem and choose the model that best fits both mathematically and practically
+
+\textbf{Example:} The following data shows the number of bacteria in a culture after $t$ hours:
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+t (hours) & 0 & 2 & 4 & 6 & 8 \\
+\hline
+Bacteria (thousands) & 100 & 200 & 450 & 970 & 2100 \\
+\hline
+\end{tabular}
+\end{center}
+
+Find a model that best fits this data.
+
+\textbf{Solution:}
+1. Plot the data points
+2. Try different regression models:
+   \begin{itemize}
+       \item Linear: $y = 242.5x + 3.5$ ($r^2 = 0.8912$)
+       \item Quadratic: $y = 25.625x^2 + 40x + 108.75$ ($r^2 = 0.9991$)
+       \item Exponential: $y = 104.82e^{0.3864x}$ ($r^2 = 0.9997$)
+   \end{itemize}
+3. The exponential model has the highest correlation coefficient and makes sense in the context of bacterial growth.
+
+Therefore, the best model for this data is $y = 104.82e^{0.3864x}$, where $y$ is the number of bacteria (in thousands) and $x$ is the time in hours.
+
+\section{Practice Problems}
+
+1. Sketch the graph of $f(x) = -2(x+1)^2 + 3$. Identify the vertex, axis of symmetry, and y-intercept.
+
+2. Find all zeros of the polynomial $f(x) = x^3 - 7x^2 + 16x - 12$.
+
+3. Perform the following operations with complex numbers:
+   a) $(3+2i) + (4-5i)$
+   b) $(2+3i)(1-4i)$
+
+4. Find the domain, vertical asymptotes, and horizontal asymptote of $f(x) = \frac{2x^2-8}{x^2-4x+3}$.
+
+5. A ball is thrown upward from the ground with an initial velocity of 64 ft/s. Its height $h$ (in feet) after $t$ seconds is given by $h(t) = -16t^2 + 64t$. How long does it take for the ball to reach its maximum height, and what is that height?
+
+\section{Conclusion}
+
+This chapter has covered the fundamental concepts of polynomial and rational functions. Understanding these topics is crucial for further study in calculus and higher mathematics. Remember to practice regularly and apply these concepts to real-world problems to deepen your understanding.
+
+\end{document}
